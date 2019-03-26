@@ -5,7 +5,7 @@ function changeColor (evt) {
 }
 
 function setDivColor () {
-	this.style.backgroundColor = "green";
+	this.style.backgroundColor = document.getElementById('color-field').value;
 }
 
 let setColorButton = document.getElementById('set-color');
