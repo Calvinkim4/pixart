@@ -4,6 +4,10 @@ function changeColor (evt) {
 	event.preventDefault();
 }
 
+function setDivColor () {
+	this.style.backgroundColor = "green";
+}
+
 let setColorButton = document.getElementById('set-color');
 
 setColorButton.addEventListener('click', changeColor);
@@ -13,6 +17,7 @@ const createDivs = () => {
 	for (let i = 0; i < 20; i++) {
 		let div = document.createElement('div');
 		div.setAttribute('class', 'square');
+		div.addEventListener('click', setDivColor);
 		document.querySelector('body').appendChild(div);
 
 	}
