@@ -12,6 +12,7 @@ setColorButton.addEventListener('mouseenter', changeColor);
 const createDivs = () => {
 	for (let i = 0; i < 20; i++) {
 		let div = document.createElement('div');
+		div.setAttribute('class', 'square');
 		document.querySelector('body').appendChild(div);
 
 	}
