@@ -14,10 +14,10 @@ setColorButton.addEventListener('click', changeColor);
 setColorButton.addEventListener('mouseenter', changeColor);
 
 const createDivs = () => {
-	for (let i = 0; i < 20; i++) {
+	for (let i = 0; i < 8000; i++) {
 		let div = document.createElement('div');
 		div.setAttribute('class', 'square');
-		div.addEventListener('click', setDivColor);
+		div.addEventListener('mouseover', setDivColor);
 		document.querySelector('body').appendChild(div);
 
 	}
