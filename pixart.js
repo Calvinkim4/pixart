@@ -18,11 +18,11 @@ function changeColor (evt) {
 	document.querySelector('.brush').style.backgroundColor = document.getElementById('color-field').value;
 	event.preventDefault();
 	recentColorArr.push(document.getElementById('color-field').value);
-	if (recentColorArr.length > 3) {
-		recentColorArr.splice(0, 1);
-	}
 	for (let i = 0; i < swatchArray.length; i++) {
 		swatchArray[i].style.backgroundColor = recentColorArr[i];
+	}
+	if (recentColorArr.length > 3) {
+		recentColorArr.splice(0, 1);
 	}
 }
 
@@ -39,7 +39,7 @@ setColorButton.addEventListener('click', changeColor);
 setColorButton.addEventListener('mouseenter', changeColor);
 
 const createDivs = () => {
-	for (let i = 0; i < 500; i++) {
+	for (let i = 0; i < 8000; i++) {
 		let div = document.createElement('div');
 		div.setAttribute('class', 'square');
 		div.addEventListener('mouseover', setDivColor);
