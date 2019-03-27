@@ -28,3 +28,11 @@ h1 {
 body {
   background-image: url('ps_neutral.png');
 }
+
+.bigSquare {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background: red;
+}
