@@ -3,16 +3,34 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <title>i &hearts; js</title>
+  <title>Pixel Art</title>
 </head>
 <body>
-  <h1>Pixel Art!</h1>
-  <div class="controls">
-    <form id="form">
-      <input type="text" id="color-field"></input>
-      <button id="set-color">Set Color</button>
-    </form>
-    <div class="brush"></div>
+  <div id='grid'>
+
+  </div>
+  <div id='option-menu'>
+    <h2>RGB</h2>
+      <div class="controls">
+        <form id="form">
+          <div class='form-div'>
+            <input type="range" class='inputs' id="red" min="0" max="255" value='' onchange=updateTextInputRed(this.value)></input>
+            <input type="text" class='numbers' id="red-num" value='' onchange=updateTextInputRed(this.value)></input>
+          </div>
+          <div class='form-div'>
+            <input type="range" class='inputs' id="green" min="0" max="255" value='' onchange=updateTextInputGreen(this.value)></input>
+            <input type="text" class='numbers' id="green-num" value='' onchange=updateTextInputGreen(this.value)></input>
+          </div>
+          <div class='form-div'>
+            <input type="range" class='inputs' id="blue" min="0" max="255" value='' onchange=updateTextInputBlue(this.value)></input>
+            <input type="text" class='numbers' id="blue-num" value='' onchange=updateTextInputBlue(this.value)></input>
+          </div>
+          
+          <!-- <button id="set-color">Set Color</button> -->
+        </form>
+        <div class="brush"></div>
+      </div>
+      <h2>RECENT</h2>
   </div>
   <script src="pixart.js"></script>
 </body>

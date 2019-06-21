@@ -1,24 +1,30 @@
-@import url(http://fonts.googleapis.com/css?family=Monoton);
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap);
+@import url(https://fonts.googleapis.com/css?family=VT323&display=swap);
 
 .brush {
   width: 100px;
   height: 100px;
-  background: #1B4370;
+  background-color: #1B4370;
   margin: 15px auto;
+  border-radius: 5px;
 }
 
 .square {
   float: left;
   width: 10px;
   height: 10px;
-  background: #E7E5DB;
+  background: white;
   margin: 0;
 }
 
 h1 {
-  font-family: Monoton;
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'VT323', monospace;
   font-size: 48px;
   text-align: center;
+  display: inline-block;
+  width: 83vw;
+  float: right;
 }
 
 .controls {
@@ -29,10 +35,71 @@ body {
   background-image: url('ps_neutral.png');
 }
 
+#grid {
+  /* width: 83vw; */
+  /* height: 98vh; */
+  /* background-color: black; */
+  width: 1500px;
+  height: 1000px;
+}
+
 .bigSquare {
-  float: left;
+  /* float: left; */
   width: 100px;
   height: 100px;
-  margin: 10px;
+  margin: 20px auto;
   background: red;
+  border-radius: 5px;
+}
+
+#option-menu {
+  margin: 0;
+  height: 98vh;
+  width: 15vw;
+  background-color: #E7E5DB;
+  display: inline-block;
+  /* float: right; */
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'VT323', monospace;
+  font-size: 30px;
+  margin: 10px;
+}
+
+#set-color {
+  clear: both;
+  display: block;
+  margin: 20px auto;
+  border-radius: 2px;
+  width: 80px;
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+}
+
+#set-color:focus {
+  outline: none;
+}
+
+.form-div {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.inputs {
+  float: left;
+  margin: 5px 10px;
+}
+
+.numbers {
+  float: right;
+  width: 40px;
+  margin: 5px 10px;
+  padding: 0;
 }

@@ -4,20 +4,24 @@ function recentDivs () {
 	for (let i = 0; i < 3; i++) {
 		let div = document.createElement('div');
 		div.setAttribute('class', 'bigSquare');
-		div.addEventListener('mouseenter', setRecentValue);
 		div.addEventListener('click', setRecentValue);
 		div.style.backgroundColor = recentColorArr[i];
 		swatchArray.push(div);
-		document.querySelector('body').appendChild(div);
+		document.getElementById('option-menu').appendChild(div);
 	}
 }
 
 recentDivs();
 
 function changeColor (evt) {
-	document.querySelector('.brush').style.backgroundColor = document.getElementById('color-field').value;
+	let red = document.getElementById('red').value;
+	let green = document.getElementById('green').value;
+	let blue = document.getElementById('blue').value;
+
+	document.querySelector('.brush').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
 	event.preventDefault();
-	recentColorArr.push(document.getElementById('color-field').value);
+	recentColorArr.push(document.querySelector('.brush').style.backgroundColor);
 	for (let i = 0; i < swatchArray.length; i++) {
 		swatchArray[i].style.backgroundColor = recentColorArr[i];
 	}
@@ -28,22 +32,46 @@ function changeColor (evt) {
 
 let recentColor;
 
-function setDivColor () {
-	recentColor = document.getElementById('color-field').value;
-	this.style.backgroundColor = recentColor;
+function setDivColor (e) {
+	recentColor = document.querySelector('.brush').style.backgroundColor;
+	e.target.style.backgroundColor = recentColor;
 }
 
-let setColorButton = document.getElementById('set-color');
+// let setColorButton = document.getElementById('set-color');
 
-setColorButton.addEventListener('click', changeColor);
-setColorButton.addEventListener('mouseenter', changeColor);
+// setColorButton.addEventListener('click', changeColor);
+// setColorButton.addEventListener('mouseenter', changeColor);
+
+let grid = document.getElementById('grid');
+let gridWidth = grid.offsetWidth;
+let gridHeight = grid.offsetHeight;
+
+let gridRowAmt = gridHeight / 10;
+let gridColumnAmt = gridWidth / 10;
+
+let divAmt = gridRowAmt * gridColumnAmt;
+
 
 const createDivs = () => {
-	for (let i = 0; i < 8000; i++) {
+	for (let i = 0; i < divAmt; i++) {
+		let flag = 0;
 		let div = document.createElement('div');
+		div.setAttribute('draggable', false);
 		div.setAttribute('class', 'square');
-		div.addEventListener('mouseover', setDivColor);
-		document.querySelector('body').appendChild(div);
+		document.querySelector('body').addEventListener("mousedown", function(e){
+		
+			document.querySelector('body').onmousemove = function(e) {
+				if (e.target.className === 'square') {
+					setDivColor(e);
+				}
+				
+			 }
+		});
+		
+		document.querySelector('body').addEventListener("mouseup", function(e){
+			document.querySelector('body').onmousemove = null
+		});
+		grid.appendChild(div);
 
 	}
 }
@@ -51,6 +79,26 @@ const createDivs = () => {
 createDivs();
 
 function setRecentValue () {
-	document.getElementById('color-field').value = this.style.backgroundColor;
+	document.querySelector('.brush').style.backgroundColor = this.style.backgroundColor;
+	changeColor();
 }
 
+
+
+function updateTextInputRed(val) {
+	document.getElementById('red-num').value=val; 
+	document.getElementById('red').value=val; 
+	changeColor();
+}
+
+function updateTextInputGreen(val) {
+	document.getElementById('green-num').value=val;
+	document.getElementById('green').value=val;
+	changeColor();
+}
+
+function updateTextInputBlue(val) {
+	document.getElementById('blue-num').value=val;
+	document.getElementById('blue').value=val;
+	changeColor();
+}
